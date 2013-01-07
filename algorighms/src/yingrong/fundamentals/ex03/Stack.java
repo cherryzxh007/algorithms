@@ -1,14 +1,35 @@
 package yingrong.fundamentals.ex03;
 
-public abstract class Stack<Item> {
+import java.util.Iterator;
+
+public class Stack<Item> implements Iterable<Item>{
 	public Stack() {
 	}
 
-	public abstract void push(Item item);
+	public   void push(Item item){
+		
+	}
 
-	public abstract Item pop(Item item);
+	public   Item pop(Item item){
+		return null;
+	};
 
-	public abstract boolean isEmpty();
+	public   boolean isEmpty(){
+		return false;
+	};
 
-	public abstract int size();
+	public   int size(){
+		return 0;
+	}
+
+	@Override
+	public Iterator<Item> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	};
+	
+	public static void main(String[] args) {
+		
+	}
+	
 }
