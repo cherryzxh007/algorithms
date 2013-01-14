@@ -22,10 +22,11 @@ public class Stack<Item> implements Iterable<Item> {
 	public Stack() {
 		first = null;
 		N = 0;
+		assert (check());
 	}
 
 	public boolean isEmpty() {
-		return N == 0;
+		return first == null;
 	};
 
 	public int size() {
@@ -108,10 +109,12 @@ public class Stack<Item> implements Iterable<Item> {
 
 	private class ListIterator implements Iterator<Item> {
 		private Node current = first;
+		private int cursor;
 
 		@Override
 		public boolean hasNext() {
-			return current.next != null;
+			// return current.next != null;
+			return cursor != N;
 		}
 
 		@Override
@@ -121,6 +124,7 @@ public class Stack<Item> implements Iterable<Item> {
 			}
 			Item item = current.item;
 			current = current.next;
+			cursor++;
 			return item;
 		}
 
