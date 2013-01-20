@@ -1,0 +1,28 @@
+package yingrong.fundamentals.ex03;
+
+import edu.princeton.cs.introcs.StdIn;
+import edu.princeton.cs.introcs.StdOut;
+
+/**
+ * 逆波兰表达式求值
+ * 
+ * @author yingrong
+ * 
+ */
+public class EvaluatePostfix {
+	public static void main(String[] args) {
+		Stack<Integer> stack = new Stack<Integer>();
+
+		while (!StdIn.isEmpty()) {
+			String s = StdIn.readString();
+			if (s.equals("+")) {
+				stack.push(stack.pop() + stack.pop());
+			} else if (s.equals("*")) {
+				stack.push(stack.pop() * stack.pop());
+			} else {
+				stack.push(Integer.parseInt(s));
+			}
+		}
+		StdOut.print(stack.pop());
+	}
+}
